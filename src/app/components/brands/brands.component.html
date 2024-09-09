@@ -1,0 +1,13 @@
+<section class="rounded-4 shadow p-2 my-2 container">
+    <h1 class="text-main text-center fw-bold py-3">All Brands</h1>
+    <div class="row g-2">
+        @for (brand of brands; track $index) {
+        <div class="col-md-4">
+            <div class="p-2 product cursor-pointer">
+                <img [src]="brand.image" [alt]="brand.name" height="300px" class="w-100">
+                <h2 class="text-center text-main py-2 fw-bold">{{brand.name}}</h2>
+            </div>
+        </div>
+        }
+    </div>
+</section>

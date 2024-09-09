@@ -1,0 +1,42 @@
+@if (detailsProduct) {
+<section>
+    <h1 class="text-center text-main my-3"> Product Details</h1>
+    <div class="row align-items-center">
+        <div class="col-md-3">
+            <owl-carousel-o [options]="detailsOptions">
+
+                @for (img of productImages; track $index) {
+                <ng-template carouselSlide>
+                    <div>
+                        <img [src]="img" class="w-100" height="400px" [alt]="detailsProduct.category.name">
+                    </div>
+                </ng-template>
+                }
+
+            </owl-carousel-o>
+        </div>
+        <div class="col-md-9 text-light">
+            <div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{detailsProduct.title}}</h2>
+                    <i (click)="addProductToWishList(detailsProduct.id)"
+                        class="fa-solid fa-heart fa-2xl text-light cursor-pointer pe-4"></i>
+                </div>
+                <p>{{detailsProduct.description}}</p>
+                <h4>{{detailsProduct.category.name}}</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-light">{{detailsProduct.price}}EGP</span>
+                    <div>
+
+                        @for (item of [1,2,3,4,5].slice(0,detailsProduct.ratingsAverage); track $index) {
+                        <span><i class="fas fa-star rating-color"></i></span>
+                        }
+                        <span class="text-light">{{detailsProduct.ratingsAverage}}</span>
+                    </div>
+                </div>
+            </div>
+            <button (click)="addCart(detailsProduct.id)" class="btn-main w-100">Add to Cart</button>
+        </div>
+    </div>
+</section>
+}

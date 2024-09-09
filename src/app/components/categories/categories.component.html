@@ -1,0 +1,13 @@
+<section class="rounded-4 shadow p-2 my-2 container">
+    <h1 class="text-main text-center fw-bold py-3">All Categories</h1>
+    <div class="row g-3">
+        @for (category of categoreisList; track category._id) {
+        <div class="col-md-4">
+            <div class="p-2 product cursor-pointer" [routerLink]="['/categoriesdetails' ,category._id]">
+                <img [src]="category.image" [alt]="category.name" height="350px" class="w-100">
+                <h2 class="text-center text-main py-2 fw-bold">{{category.name}}</h2>
+            </div>
+        </div>
+        }
+    </div>
+</section>

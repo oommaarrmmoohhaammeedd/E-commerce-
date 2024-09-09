@@ -1,0 +1,25 @@
+<section class="bg-main-light my-2 p-3 shadow rounded-4 w-75 mx-auto">
+    <h1 class="fw-bold text-main text-center">My Wish List</h1>
+    @if (dataList) {
+    @for (item of dataList; track $index) {
+    <div class="row mb-2 border-bottom border-4">
+        <div class="col-md-1">
+            <div>
+                <img [src]="item.imageCover" class="w-100" [alt]="item.title">
+            </div>
+        </div>
+        <div class="col-md-11 d-flex align-items-center justify-content-between">
+            <div>
+                <h3>{{item.title}}</h3>
+                <p class="text-main fw-bold">Price : {{item.price}}</p>
+                <span (click)="removeItemFromList(item.id)" class="text-danger"><i
+                        class="fa-solid fa-trash fa-xl cursor-pointer"></i> Remove</span>
+            </div>
+            <div>
+                <button (click)="addCart(item.id)" class="btn-main">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+    }
+    }
+</section>
